@@ -19,7 +19,7 @@ def summarize(txt):
   chain = load_summarize_chain(llm, chain_type="map_reduce")
   return st.info(chain.run(docs))
 
-st.title('🦜🔗 Text Summarization with Langchain')
+st.title('🦜🔗 Text Summarization App')
 with st.form("summarize_form"):
   txt_input = st.text_area('Enter your text', '', height=200)
   submitted = st.form_submit_button("Submit")
