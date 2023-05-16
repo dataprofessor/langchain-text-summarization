@@ -5,7 +5,7 @@ Text Summarization App built using Langchain and Streamlit
 
 ## Demo App
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://starter-kit.streamlitapp.com/)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://langchain-text-summarization.streamlit.app/)
 
 ## Get an OpenAI API key
 
