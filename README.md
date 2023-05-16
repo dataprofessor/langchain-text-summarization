@@ -1,9 +1,7 @@
-# 📦 Streamlit App Starter Kit 
+# 🦜🔗 Langchain - Text Summarization App
 ```
-⬆️ (Replace above with your app's name)
+Text Summarization App built using Langchain and Streamlit
 ```
-
-Description of the app ...
 
 ## Demo App
 
