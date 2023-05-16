@@ -5,10 +5,9 @@ from langchain.docstore.document import Document
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.chains.summarize import load_summarize_chain
 
-# Set OpenAI API key as environment variable
-os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
-
 def summarize(txt):
+  # Set OpenAI API key as environment variable
+  os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
   # Instantiate the LLM model
   llm = OpenAI(temperature=0)
   # Split text
