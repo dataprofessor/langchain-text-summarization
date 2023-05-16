@@ -20,5 +20,8 @@ def summarize(txt):
   return st.code(chain.run(docs))
 
 st.title('🦜🔗 Text Summarization with Langchain')
-txt_input = st.text_area('Enter your text', '')
-summarize(txt_input)
+with st.form("summarize_form"):
+  txt_input = st.text_area('Enter your text', '')
+  submitted = st.form_submit_button("Submit")
+  if submitted:
+    summarize(txt_input)
