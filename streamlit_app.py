@@ -17,7 +17,7 @@ def summarize(txt):
   docs = [Document(page_content=t) for t in texts[:3]]
   # Text summarization
   chain = load_summarize_chain(llm, chain_type="map_reduce")
-  return st.code(chain.run(docs))
+  return st.info(chain.run(docs))
 
 st.title('🦜🔗 Text Summarization with Langchain')
 with st.form("summarize_form"):
