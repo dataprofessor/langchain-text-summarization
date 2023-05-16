@@ -21,7 +21,7 @@ def summarize(txt):
 
 st.title('🦜🔗 Text Summarization with Langchain')
 with st.form("summarize_form"):
-  txt_input = st.text_area('Enter your text', '', height=300)
+  txt_input = st.text_area('Enter your text', '', height=200)
   submitted = st.form_submit_button("Submit")
   if submitted:
     summarize(txt_input)
