@@ -1,5 +1,6 @@
 import streamlit as st
+import openai
 
-st.title('🎈 App Name')
+st.title('Text Summarization with Langchain')
 
 st.write('Hello world!')
