@@ -10,8 +10,8 @@ with st.sidebar:
     # Set OpenAI API key as environment variable
     #os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
     os.environ['OPENAI_API_KEY'] = st.text_input('Enter OpenAI API key:')
-  else:
-    st.success('Key is provided!', icon='🔑')
+  #else:
+    #st.success('Key is provided!', icon='🔑')
 
 def summarize(txt):
   # Instantiate the LLM model
@@ -26,6 +26,7 @@ def summarize(txt):
   return st.info(chain.run(docs))
 
 st.title('🦜🔗 Text Summarization App')
+
 with st.form("summarize_form"):
   txt_input = st.text_area('Enter your text', '', height=200)
 
