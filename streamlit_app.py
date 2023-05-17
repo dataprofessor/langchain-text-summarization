@@ -28,9 +28,9 @@ def summarize(txt):
 st.title('🦜🔗 Text Summarization App')
 with st.form("summarize_form"):
   txt_input = st.text_area('Enter your text', '', height=200)
+  submitted = st.form_submit_button("Submit")
   
-  if os.environ['OPENAI_API_KEY']:
-    submitted = st.form_submit_button("Submit")
+  if st.secrets['OPENAI_API_KEY']:
     if submitted:
       summarize(txt_input)
   else:
