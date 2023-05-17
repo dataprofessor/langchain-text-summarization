@@ -6,11 +6,13 @@ from langchain.text_splitter import CharacterTextSplitter
 from langchain.chains.summarize import load_summarize_chain
 
 
-if os.getenv('OPENAI_API_KEY') is not None:
+if os.getenv('OPENAI_API_KEY'):
   # Set OpenAI API key as environment variable
   #os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
-  os.environ['OPENAI_API_KEY'] = st.text_input('Enter OpenAI API key:', type='password')
-#else:
+  #os.environ['OPENAI_API_KEY'] = st.text_input('Enter OpenAI API key:', type='password')
+  st.write('if')
+else:
+  st.write('else')
   #st.success('Key is provided!', icon='🔑')
 
 def summarize(txt):
