@@ -30,7 +30,7 @@ with st.form("summarize_form"):
   txt_input = st.text_area('Enter your text', '', height=200)
   submitted = st.form_submit_button("Submit")
   
-  if st.secrets['OPENAI_API_KEY']:
+  if st.secrets['OPENAI_API_KEY'] in locals():
     if submitted:
       summarize(txt_input)
   else:
