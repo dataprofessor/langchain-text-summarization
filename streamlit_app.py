@@ -27,12 +27,12 @@ def summarize(txt):
   # Create multiple documents
   docs = [Document(page_content=t) for t in texts[:3]]
   # Text summarization
-  chain = load_summarize_chain(llm, chain_type="map_reduce")
+  chain = load_summarize_chain(llm, chain_type='map_reduce')
   return st.info(chain.run(docs))
 
 # Form to accept user's text input for summarization
-with st.form("summarize_form"):
+with st.form('summarize_form'):
   txt_input = st.text_area('Enter your text', '', height=200)
-  submitted = st.form_submit_button("Submit")
+  submitted = st.form_submit_button('Submit')
   if submitted:
     summarize(txt_input)
