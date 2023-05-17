@@ -5,17 +5,18 @@ from langchain.docstore.document import Document
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.chains.summarize import load_summarize_chain
 
+# Check if OpenAI API key is in secrets
 if 'OPENAI_API_KEY' in st.secrets:
   st.success('Key is provided!', icon='🔑')
   os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
 else:
   st.error('Please enter your API key!', icon='⚠️')
-  #api_key = st.text_input('Enter OpenAI API key:', type='password')
-  #os.environ['OPENAI_API_KEY'] = api_key
+  api_key = st.text_input('Enter OpenAI API key:', type='password')
+  os.environ['OPENAI_API_KEY'] = api_key
 
-api_key = st.text_input('Enter OpenAI API key:', type='password')
-if api_key:
-  os.environ['OPENAI_API_KEY'] = api_key  
+#api_key = st.text_input('Enter OpenAI API key:', type='password')
+#if api_key:
+#  os.environ['OPENAI_API_KEY'] = api_key  
   
 #if os.getenv('OPENAI_API_KEY'):
   # Set OpenAI API key as environment variable
