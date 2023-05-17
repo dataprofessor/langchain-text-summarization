@@ -5,7 +5,7 @@ from langchain.docstore.document import Document
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.chains.summarize import load_summarize_chain
 
-if st.secrets['OPENAI_API_KEY'] in globals
+if st.secrets['OPENAI_API_KEY'] in globals:
   st.success('Key is provided!', icon='🔑')
 
 if os.getenv('OPENAI_API_KEY'):
