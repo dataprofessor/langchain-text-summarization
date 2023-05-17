@@ -6,7 +6,7 @@ from langchain.text_splitter import CharacterTextSplitter
 from langchain.chains.summarize import load_summarize_chain
 
 #if os.getenv('OPENAI_API_KEY'):
-if st.secrets['OPENAI_API_KEY'] is globals():
+if st.secrets['OPENAI_API_KEY'] in globals():
   # Set OpenAI API key as environment variable
   #os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
   #os.environ['OPENAI_API_KEY'] = st.text_input('Enter OpenAI API key:', type='password')
