@@ -5,6 +5,8 @@ from langchain.docstore.document import Document
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.chains.summarize import load_summarize_chain
 
+st.title('🦜🔗 Text Summarization App')
+
 # Check if OpenAI API key is in secrets
 if 'OPENAI_API_KEY' in st.secrets:
   st.sidebar.success('Nothing to see here, API key is already provided!')
@@ -29,7 +31,6 @@ def summarize(txt):
   return st.info(chain.run(docs))
 
 # Form to accept user's text input for summarization
-st.title('🦜🔗 Text Summarization App')
 with st.form("summarize_form"):
   txt_input = st.text_area('Enter your text', '', height=200)
   submitted = st.form_submit_button("Submit")
