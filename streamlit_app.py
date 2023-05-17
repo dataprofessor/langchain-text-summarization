@@ -28,14 +28,8 @@ def summarize(txt):
 st.title('🦜🔗 Text Summarization App')
 with st.form("summarize_form"):
   txt_input = st.text_area('Enter your text', '', height=200)
-  submitted = st.form_submit_button("Submit")
-  
-  if os.getenv('OPENAI_API_KEY') is not None:
-    if submitted:
-      summarize(txt_input)
-  else:
-    st.warning('Enter you OpenAI API key in the sidebar!', icon='⚠️')
+
     
-  #submitted = st.form_submit_button("Submit")
-  #if submitted:
-    #summarize(txt_input)
+  submitted = st.form_submit_button("Submit")
+  if submitted:
+    summarize(txt_input)
