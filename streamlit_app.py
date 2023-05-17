@@ -5,12 +5,8 @@ from langchain.docstore.document import Document
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.chains.summarize import load_summarize_chain
 
-def func():
-  if st.secrets['OPENAI_API_KEY'] in locals():
-    return st.write('A')
-  else:
-    return st.write('B')
-func()
+if st.secrets['OPENAI_API_KEY'] in globals
+  st.success('Key is provided!', icon='🔑')
 
 if os.getenv('OPENAI_API_KEY'):
   # Set OpenAI API key as environment variable
