@@ -7,7 +7,8 @@ from langchain.chains.summarize import load_summarize_chain
 
 # Check if OpenAI API key is in secrets
 if 'OPENAI_API_KEY' in st.secrets:
-  st.sidebar.success('Key is provided!', icon='🔑')
+  st.sidebar.success('Nothing to see here, API key is already provided!')
+  st.success('Key is provided!', icon='🔑')
   os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
 # If API key is not in secrets, ask user to enter key
 else:
