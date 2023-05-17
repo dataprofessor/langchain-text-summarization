@@ -9,15 +9,17 @@ if 'OPENAI_API_KEY' in st.secrets:
   st.success('Key is provided!', icon='🔑')
 else:
   st.error('Please enter API key!', icon='⚠️')
+api_key = st.text_input('Enter OpenAI API key:', type='password')
 
-if os.getenv('OPENAI_API_KEY'):
+
+#if os.getenv('OPENAI_API_KEY'):
   # Set OpenAI API key as environment variable
   #os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
   #os.environ['OPENAI_API_KEY'] = st.text_input('Enter OpenAI API key:', type='password')
-  st.success('Key is provided!', icon='🔑')
-else:
-  st.error('Please enter API key!', icon='⚠️')
-api_key = st.text_input('Enter OpenAI API key:', type='password')
+  #st.success('Key is provided!', icon='🔑')
+#else:
+  #st.error('Please enter API key!', icon='⚠️')
+
 
 def summarize(txt):
   # Instantiate the LLM model
