@@ -3,6 +3,12 @@
 Text Summarization App built using Langchain and Streamlit
 ```
 
+## Overview of the App
+- Accepts a paragraph of text as the input text (to be summarized)
+- Text is split into chunks via `CharacterTextSplitter()` along with its `split_text()` method
+- Document is generated via `Document()
+- Text summarization is achieved using `load_summarize_chain()` by applying the `run()` method on the input `docs`.
+
 ## Demo App
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://langchain-text-summarization.streamlit.app/)
