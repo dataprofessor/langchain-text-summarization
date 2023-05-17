@@ -5,15 +5,15 @@ from langchain.docstore.document import Document
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.chains.summarize import load_summarize_chain
 
-
-if os.getenv('OPENAI_API_KEY'):
+#if os.getenv('OPENAI_API_KEY'):
+if st.secrets['OPENAI_API_KEY']:
   # Set OpenAI API key as environment variable
   #os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
   #os.environ['OPENAI_API_KEY'] = st.text_input('Enter OpenAI API key:', type='password')
   st.success('Key is provided!', icon='🔑')
 else:
   st.error('Please enter API key!', icon='⚠️')
-
+api_key = st.text_input('Enter OpenAI API key:', type='password')
 
 def summarize(txt):
   # Instantiate the LLM model
@@ -31,8 +31,6 @@ st.title('🦜🔗 Text Summarization App')
 
 with st.form("summarize_form"):
   txt_input = st.text_area('Enter your text', '', height=200)
-
-    
   submitted = st.form_submit_button("Submit")
   if submitted:
     summarize(txt_input)
