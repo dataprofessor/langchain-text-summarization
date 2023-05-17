@@ -7,9 +7,9 @@ from langchain.chains.summarize import load_summarize_chain
 
 def func():
   if st.secrets['OPENAI_API_KEY'] in locals():
-    return True
+    return st.write('A)
   else:
-    return False
+    return st.write('B')
 func()
 
 if os.getenv('OPENAI_API_KEY'):
