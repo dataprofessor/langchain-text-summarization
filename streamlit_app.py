@@ -8,6 +8,8 @@ from langchain.chains.summarize import load_summarize_chain
 def func():
   if st.secrets['OPENAI_API_KEY'] in locals():
     return True
+  else:
+    return False
 func()
 
 if os.getenv('OPENAI_API_KEY'):
