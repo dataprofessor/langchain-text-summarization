@@ -7,6 +7,8 @@ from langchain.chains.summarize import load_summarize_chain
 
 if st.secrets['OPENAI_API_KEY'] in globals:
   st.success('Key is provided!', icon='🔑')
+else:
+  st.error('Please enter API key!', icon='⚠️')
 
 if os.getenv('OPENAI_API_KEY'):
   # Set OpenAI API key as environment variable
