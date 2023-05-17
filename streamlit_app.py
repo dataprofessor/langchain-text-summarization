@@ -6,12 +6,12 @@ from langchain.text_splitter import CharacterTextSplitter
 from langchain.chains.summarize import load_summarize_chain
 
 with st.sidebar:
-  if st.secrets['OPENAI_API_KEY']:
+  if os.getenv('OPENAI_API_KEY') is None:
     # Set OpenAI API key as environment variable
-    os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
-    st.success('Key is provided!', icon='🔑')
-  else:
+    #os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
     os.environ['OPENAI_API_KEY'] = st.text_input('Enter OpenAI API key:')
+  else:
+    st.success('Key is provided!', icon='🔑')
 
 def summarize(txt):
   # Instantiate the LLM model
