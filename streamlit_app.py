@@ -5,10 +5,10 @@ from langchain.docstore.document import Document
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.chains.summarize import load_summarize_chain
 
-if st.secrets['OPENAI_API_KEY'] is 'True':
+if st.secrets['OPENAI_API_KEY'] == 'True':
   # Set OpenAI API key as environment variable
   os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
-  st.success('🔑 Key is provided!')
+  st.success('Key is provided!', icon='🔑')
 
 def summarize(txt):
   # Instantiate the LLM model
