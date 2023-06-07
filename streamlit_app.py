@@ -15,7 +15,7 @@ def generate_response(txt):
     docs = [Document(page_content=t) for t in texts[:3]]
     # Text summarization
     chain = load_summarize_chain(llm, chain_type='map_reduce')
-    return st.info(chain.run(docs))
+    return chain.run(docs)
 
 # Page title
 st.set_page_config(page_title='🦜🔗 Text Summarization App')
