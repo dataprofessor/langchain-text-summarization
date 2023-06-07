@@ -5,19 +5,7 @@ from langchain.docstore.document import Document
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.chains.summarize import load_summarize_chain
 
-st.title('🦜🔗 Text Summarization App')
-
-# Check if OpenAI API key is in secrets
-if 'OPENAI_API_KEY' in st.secrets:
-  st.success('Key is provided!', icon='🔑')
-  os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
-# If API key is not in secrets, ask user to enter key
-else:
-  st.error('Please enter your API key!', icon='⚠️')
-  api_key = st.text_input('Enter OpenAI API key:', type='password')
-  os.environ['OPENAI_API_KEY'] = api_key
-
-def summarize(txt):
+def generate_response(txt):
   # Instantiate the LLM model
   llm = OpenAI(temperature=0)
   # Split text
@@ -29,9 +17,23 @@ def summarize(txt):
   chain = load_summarize_chain(llm, chain_type='map_reduce')
   return st.info(chain.run(docs))
 
+# Page title
+st.set_page_config(page_title='🦜🔗 Ask the Doc App')
+st.title('🦜🔗 Text Summarization App')
+
+# Text input
+txt_input = st.text_area('Enter your text', '', height=200)
+
 # Form to accept user's text input for summarization
-with st.form('summarize_form'):
-  txt_input = st.text_area('Enter your text', '', height=200)
+result = []
+with st.form('summarize_form', clear_on_submit=True):
+  openai_api_key = st.text_input('OpenAI API Key', type = 'password')
+  #txt_input = st.text_area('Enter your text', '', height=200)
   submitted = st.form_submit_button('Submit')
-  if submitted:
-    summarize(txt_input)
+  if submitted and openai_api_key.startswith('sk-'):
+    response = generate_response(txt_input)
+    result.append(response)
+    del openai_api_key
+
+if len(result):
+  st.info(response)
