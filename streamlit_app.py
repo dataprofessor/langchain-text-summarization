@@ -12,7 +12,7 @@ def generate_response(txt):
     text_splitter = CharacterTextSplitter()
     texts = text_splitter.split_text(txt)
     # Create multiple documents
-    docs = [Document(page_content=t) for t in texts[:3]]
+    docs = [Document(page_content=t) for t in texts]
     # Text summarization
     chain = load_summarize_chain(llm, chain_type='map_reduce')
     return chain.run(docs)
